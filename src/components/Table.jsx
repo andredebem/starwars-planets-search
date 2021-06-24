@@ -2,16 +2,37 @@ import React, { useContext } from 'react';
 import AppContext from '../contextAPI/AppContext';
 
 function Table() {
-  const { data } = useContext(AppContext);
+  const { data, filters: { filterByName: { name } },
+    setName, filtered, setFiltered } = useContext(AppContext);
 
-  const renderTable = () => {
-    const renderPlanets = data.map((planet, index) => {
-      const { name, population, diameter, gravity, climate,
+  const renderTableHeader = () => (
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Population</th>
+        <th>Diameter</th>
+        <th>Gravity</th>
+        <th>Climate</th>
+        <th>Terrain</th>
+        <th>Surface Water</th>
+        <th>Rotation Period</th>
+        <th>Orbital Period</th>
+        <th>Films</th>
+        <th>Created</th>
+        <th>Edited</th>
+        <th>URL</th>
+      </tr>
+    </thead>
+  );
+
+  const renderPlanets = (arrayPlanets) => {
+    const mapPlanets = arrayPlanets.map((planet, index) => {
+      const { name: namePlanet, population, diameter, gravity, climate,
         terrain, surface_water: surfaceWater, rotation_period: rotationPeriod,
         orbital_period: orbitalPeriod, films, created, edited, url } = planet;
       return (
         <tr key={ index }>
-          <td>{name}</td>
+          <td>{namePlanet}</td>
           <td>{population}</td>
           <td>{diameter}</td>
           <td>{gravity}</td>
@@ -28,34 +49,57 @@ function Table() {
       );
     });
     return (
+      <tbody>
+        {mapPlanets}
+      </tbody>
+    );
+  };
+
+  const filterByName = (value) => {
+    const filteredPlanets = data
+      .filter((planet) => planet.name.toLowerCase().includes(value.toLowerCase()));
+    setFiltered(filteredPlanets);
+  };
+
+  const handleName = ({ target: { value } }) => {
+    setName(value);
+    filterByName(value);
+  };
+
+  const whatRender = () => {
+    if (filtered.length === 0 && name.length === 0) {
+      return (
+        <table>
+          { renderTableHeader() }
+          { renderPlanets(data) }
+        </table>
+      );
+    }
+    return (
       <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Population</th>
-            <th>Diameter</th>
-            <th>Gravity</th>
-            <th>Climate</th>
-            <th>Terrain</th>
-            <th>Surface Water</th>
-            <th>Rotation Period</th>
-            <th>Orbital Period</th>
-            <th>Films</th>
-            <th>Created</th>
-            <th>Edited</th>
-            <th>URL</th>
-          </tr>
-        </thead>
-        <tbody>
-          {renderPlanets}
-        </tbody>
+        { renderTableHeader() }
+        { renderPlanets(filtered) }
       </table>
     );
   };
 
   return (
     <div>
-      { data.length === 0 ? <span>Carregando...</span> : renderTable() }
+      <form>
+        Filter by:
+        <br />
+        <label htmlFor="name">
+          Name
+          <input
+            data-testid="name-filter"
+            type="text"
+            name="name"
+            id="name"
+            onChange={ (e) => handleName(e) }
+          />
+        </label>
+      </form>
+      { data.length === 0 ? <span>Carregando...</span> : whatRender() }
     </div>
   );
 }

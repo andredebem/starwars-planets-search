@@ -5,9 +5,20 @@ import fetchPlanets from '../fetchPlanets';
 
 function Provider({ children }) {
   const [data, setData] = useState([]);
+  const [name, setName] = useState('');
+  const [filtered, setFiltered] = useState([]);
+
   const contextValue = {
     data,
     setData,
+    filters: {
+      filterByName: {
+        name,
+      },
+    },
+    setName,
+    filtered,
+    setFiltered,
   };
 
   useEffect(() => {
