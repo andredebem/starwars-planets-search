@@ -7,7 +7,7 @@ function Provider({ children }) {
   const [data, setData] = useState([]);
   const [name, setName] = useState('');
   const [column, setColumn] = useState('population');
-  const [comparison, setComparison] = useState('greater_than');
+  const [comparison, setComparison] = useState('maior que');
   const [value, setValue] = useState(0);
   const [filtered, setFiltered] = useState([]);
   const [columnToRemove, setColumnToRemove] = useState('');

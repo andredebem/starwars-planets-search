@@ -65,11 +65,11 @@ function Table() {
   const filterByValue = (column, comparison, value) => {
     function operation(param1, param2) {
       switch (comparison) {
-      case 'greater_than':
+      case 'maior que':
         return param1 > param2;
-      case 'less_than':
+      case 'menor que':
         return param1 < param2;
-      case 'equal_to':
+      case 'igual a':
         return param1 === param2;
       default:
         return true;
@@ -159,9 +159,9 @@ function Table() {
           data-testid="comparison-filter"
           onChange={ (e) => handleChange(e) }
         >
-          <option value="greater_than">maior que</option>
-          <option value="less_than">menor que</option>
-          <option value="equal_to">igual a</option>
+          <option value="maior que">maior que</option>
+          <option value="menor que">menor que</option>
+          <option value="igual a">igual a</option>
         </select>
         <label htmlFor="value_number">
           Value
