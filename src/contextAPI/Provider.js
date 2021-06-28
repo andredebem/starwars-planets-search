@@ -6,7 +6,11 @@ import fetchPlanets from '../fetchPlanets';
 function Provider({ children }) {
   const [data, setData] = useState([]);
   const [name, setName] = useState('');
+  const [column, setColumn] = useState('population');
+  const [comparison, setComparison] = useState('greater_than');
+  const [value, setValue] = useState(0);
   const [filtered, setFiltered] = useState([]);
+  const [columnToRemove, setColumnToRemove] = useState('');
 
   const contextValue = {
     data,
@@ -15,10 +19,22 @@ function Provider({ children }) {
       filterByName: {
         name,
       },
+      filterByNumericValues: [
+        {
+          column,
+          comparison,
+          value,
+        },
+      ],
     },
     setName,
+    setColumn,
+    setComparison,
+    setValue,
     filtered,
     setFiltered,
+    columnToRemove,
+    setColumnToRemove,
   };
 
   useEffect(() => {

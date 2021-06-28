@@ -2,8 +2,9 @@ import React, { useContext } from 'react';
 import AppContext from '../contextAPI/AppContext';
 
 function Table() {
-  const { data, filters: { filterByName: { name } },
-    setName, filtered, setFiltered } = useContext(AppContext);
+  const { data, filters: { filterByName: { name }, filterByNumericValues },
+    setName, setColumn, setComparison, setValue, filtered,
+    setFiltered, columnToRemove, setColumnToRemove } = useContext(AppContext);
 
   const renderTableHeader = () => (
     <thead>
@@ -61,9 +62,57 @@ function Table() {
     setFiltered(filteredPlanets);
   };
 
-  const handleName = ({ target: { value } }) => {
-    setName(value);
-    filterByName(value);
+  const filterByValue = (column, comparison, value) => {
+    function operation(param1, param2) {
+      switch (comparison) {
+      case 'greater_than':
+        return param1 > param2;
+      case 'less_than':
+        return param1 < param2;
+      case 'equal_to':
+        return param1 === param2;
+      default:
+        return true;
+      }
+    }
+    const filteredPlanets = data
+      .filter((planet) => operation(parseFloat(planet[column]), parseFloat(value)));
+    setFiltered(filteredPlanets);
+  };
+
+  const buttonToFilter = () => {
+    const { column, comparison, value } = filterByNumericValues[0];
+    filterByValue(column, comparison, value);
+    setColumnToRemove(column);
+  };
+
+  const handleChange = ({ target: { id, value } }) => {
+    switch (id) {
+    case 'name':
+      setName(value);
+      filterByName(value);
+      break;
+    case 'column':
+      setColumn(value);
+      break;
+    case 'comparison':
+      setComparison(value);
+      break;
+    case 'value_number':
+      setValue(value);
+      break;
+    default:
+      return null;
+    }
+  };
+
+  const renderColumnsFilter = (columnRemove) => {
+    const arrayOfColumns = ['population', 'orbital_period', 'diameter',
+      'rotation_period', 'surface_water'];
+    const columnsFiltered = arrayOfColumns.filter((option) => columnRemove !== option);
+    return columnsFiltered.map((column) => (
+      <option key={ column } value={ column }>{column}</option>
+    ));
   };
 
   const whatRender = () => {
@@ -95,9 +144,43 @@ function Table() {
             type="text"
             name="name"
             id="name"
-            onChange={ (e) => handleName(e) }
+            onChange={ (e) => handleChange(e) }
           />
         </label>
+        <select
+          id="column"
+          data-testid="column-filter"
+          onChange={ (e) => handleChange(e) }
+        >
+          { renderColumnsFilter(columnToRemove) }
+        </select>
+        <select
+          id="comparison"
+          data-testid="comparison-filter"
+          onChange={ (e) => handleChange(e) }
+        >
+          <option value="greater_than">maior que</option>
+          <option value="less_than">menor que</option>
+          <option value="equal_to">igual a</option>
+        </select>
+        <label htmlFor="value_number">
+          Value
+          <input
+            type="number"
+            name="value_number"
+            id="value_number"
+            min="0"
+            data-testid="value-filter"
+            onChange={ (e) => handleChange(e) }
+          />
+        </label>
+        <button
+          type="button"
+          data-testid="button-filter"
+          onClick={ () => buttonToFilter() }
+        >
+          Filter
+        </button>
       </form>
       { data.length === 0 ? <span>Carregando...</span> : whatRender() }
     </div>
