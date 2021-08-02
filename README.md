@@ -1,4 +1,4 @@
-# Boas vindas ao repositório do projeto Starwars Planets Search!
+# Boas-vindas ao repositório do projeto Starwars Planets Search!
 
 Aqui você vai encontrar todos os detalhes de como usufruir do que foi desenvolvido.
 
