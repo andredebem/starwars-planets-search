@@ -1,26 +1,17 @@
-## Termos e acordos
+# Boas vindas ao repositório do projeto Starwars Planets Search!
 
-Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe.
+Aqui você vai encontrar todos os detalhes de como usufruir do que foi desenvolvido.
 
-# Boas vindas ao repositório do projeto Starwars Planets Search em context api e hooks!
-
-Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo e, se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
-
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir deste repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
+O objetivo aqui era desenvolver uma lista com filtros de planetas do universo de Star Wars usando **Context API e Hooks** para controlar os estados globais.
 
 ---
 
 # Sumário
 
 - [Habilidades](#habilidades)
-- [Entregáveis](#entregáveis)
-  - [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
-  - [Desenvolvimento](#desenvolvimento)
-  - [Data de entrega](#data-de-entrega)
-- [Instruções para entregar seu projeto:](#instruções-para-entregar-seu-projeto)
-  - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
-  - [Durante o desenvolvimento](#durante-o-desenvolvimento)
-- [Como desenvolver](#como-desenvolver)
+- [Instruções](#instruções)
+  - [Para visualizar o projeto](#para-visualizar-o-projeto)
+  - [Commits](#commits)
   - [Linter](#linter)
 - [Requisitos do projeto](#requisitos-do-projeto)
   - [Lista de requisitos](#lista-de-requisitos)
@@ -34,15 +25,13 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
     
     `Requisitos bônus:`
     - [6 - Ordene as colunas de forma ascendente ou descendente](#6---ordene-as-colunas-de-forma-ascendente-ou-descendente)
-- [Depois de terminar o desenvolvimento (opcional)](#depois-de-terminar-o-desenvolvimento-opcional)
-- [Revisando um pull request](#revisando-um-pull-request)
 - [Avisos Finais](#avisos-finais)
 
 ---
 
 # Habilidades
 
-Nesse projeto, você será capaz de:
+Tive que demonstrar conhecimento suficiente para:
 
 * Utilizar a _Context API_ do **React** para gerenciar estado.
 * Utilizar o _React Hook useState_;
@@ -52,84 +41,37 @@ Nesse projeto, você será capaz de:
 
 ---
 
-# Entregáveis
+# Instruções:
 
-## O que deverá ser desenvolvido
-
-Você vai desenvolver uma lista com filtros de planetas do universo de Star Wars usando **Context API e Hooks** para controlar os estados globais.
-
----
-
-## Desenvolvimento
-
-Este repositório já contém um _template_ de uma aplicação React criado e configurado. Após clonar o projeto e instalar as dependências (mais sobre isso abaixo), você **poderá** criara a sua branch e iniciar o trabalho.
-
----
-
-## Data de entrega
-
-  - Projeto individual.
-
-  - Serão `2` dias de projeto.
-  
-  - Data de entrega para avaliação final do projeto: `05/07/2021 - 14:00h`.
-
----
-
-# Instruções para entregar seu projeto:
-
-## Antes de começar a desenvolver
+## PARA VISUALIZAR O PROJETO:
 
 1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-010-b-project-starwars-planets-search.git`.
-  * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-010-b-project-starwars-planets-search`
+  * `git clone git@github.com:andredebem/starwars-planets-search.git`.
+  * Entre na pasta do repositório que você acabou de clonar;
 
 2. Instale as dependências e inicialize o projeto
   * Instale as dependências:
     * `npm install`
   * Inicialize o projeto:
-    * `npm start` (uma nova página deve abrir no seu navegador com um texto simples)
-  * Verifique que os testes estão executando:
-    * `npm test` (os testes devem rodar e falhar)
+    * `npm start` (uma nova página já com o projeto deve abrir no seu navegador)
+  * Verifique que os testes estão passando:
+    * `npm test` (os testes devem rodar)
 
-3. Crie uma branch a partir da branch `master`
+OU
 
-  * Verifique que você está na branch `master`
-    * Exemplo: `git branch`
-  * Se não estiver, mude para a branch `master`
-    * Exemplo: `git checkout master`
-  * Agora, crie uma branch onde você vai guardar os commits do seu projeto
+_🚧 EM CONSTRUÇÃO 🚧_
 
 ---
 
-## Durante o desenvolvimento
+### COMMITS
 
-* Faça `commits` das alterações que você fizer no código regularmente
-
-* Lembre-se de sempre após um (ou alguns) `commits` atualizar o repositório remoto
-
-* Os comandos que você utilizará com mais frequência são:
-  1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_
-  2. `git add` _(para adicionar arquivos ao stage do Git)_
-  3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_
-  4. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_
-  5. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_
+* Os `commits` representam as alterações que foram feitas no código regularmente.
 
 ---
 
-# Como desenvolver
+### Linter
 
-## Linter
-
-Para garantir a qualidade do seu código de forma a tê-lo mais legível, de mais fácil manutenção e seguindo as boas práticas de desenvolvimento nós utilizamos neste projeto o linter `ESLint` e o `Stylelint`. Para rodar o linter localmente no seu projeto, execute o comando abaixo:
-
-```bash
-npm run lint
-npm run lint:styles
-```
-
-⚠ **PULL REQUESTS COM ISSUES DE LINTER NÃO SERÃO AVALIADAS. ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠
+Para garantir a qualidade do código, foi utilizado o linter _ESLint_. Assim o código estará alinhado com as boas práticas de desenvolvimento, sendo mais legível e de fácil manutenção.
 
 ---
 
@@ -300,31 +242,10 @@ O que será verificado:
 - Ordena os planetas do mais populoso para o menos populoso
 ```
 
----
-
-# Depois de terminar o desenvolvimento (opcional)
-
-Para **"entregar"** seu projeto, siga os passos a seguir:
-
-* Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas
-  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**
-  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**
-  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`
-
----
-
-# Revisando um pull request
-
-Use o conteúdo sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os _Pull Requests_.
-
----
-
 # Avisos Finais
 
-Ao finalizar e submeter o projeto, não se esqueça de avaliar sua experiência preenchendo o formulário. Leva menos de 3 minutos!
+Ficou com alguma dúvida?
 
-Link: [Avaliação](https://bit.ly/3ta7hA0)
-
-O avaliador automático não necessariamente avalia seu projeto na ordem em que os requisitos aparecem no _README_. Isso acontece para deixar o processo de avaliação mais rápido. Então, não se assuste se isso acontecer, ok?
+Sem problemas... Basta entrar em contato comigo!!
 
 ---
