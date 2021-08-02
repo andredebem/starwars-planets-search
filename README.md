@@ -54,8 +54,6 @@ Tive que demonstrar conhecimento suficiente para:
     * `npm install`
   * Inicialize o projeto:
     * `npm start` (uma nova página já com o projeto deve abrir no seu navegador)
-  * Verifique que os testes estão passando:
-    * `npm test` (os testes devem rodar)
 
 OU
 
